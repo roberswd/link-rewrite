@@ -106,6 +106,28 @@ the bot will reply with the fixed version.
 | `DISCORD_TOKEN`  | Yes      | —                  | Your bot token from the Developer Portal.    |
 | `INSTAGRAM_HOST` | No       | `kkinstagram.com`  | The embed-proxy host used to rewrite links.  |
 
+## Running with Docker (recommended for always-on hosting)
+
+For a server, desktop, or Raspberry Pi you want running 24/7, Docker is the
+easiest path — it handles auto-start on boot and auto-restart on crash, with no
+host Python setup.
+
+Make sure your `.env` exists (same as step 5 above), then:
+
+```bash
+docker compose up -d --build   # build the image and start it in the background
+docker compose logs -f         # follow logs — look for "Logged in as"
+docker compose down            # stop and remove the container
+```
+
+The `restart: unless-stopped` policy in `docker-compose.yml` brings the bot back
+automatically after a crash or reboot, until you explicitly run `docker compose
+down`. Your token is injected at runtime via `env_file: .env` and is **not** baked
+into the image (`.dockerignore` excludes `.env`).
+
+> Run the bot in only **one** place at a time. The same token connected from two
+> machines will make Rem respond to everything twice.
+
 ## A note on embed-proxy hosts
 
 The rewrite hosts (`kkinstagram.com`, and others like `ddinstagram` before it) are
@@ -120,7 +142,7 @@ exposes for that post to anonymous fetchers — not something the bot can fix.
 ## Planned
 
 - TikTok and X/Twitter support (via their own embed-proxy hosts)
-- `Dockerfile` + `docker-compose.yml` for running on a server or Raspberry Pi
+- Growing Rem from a link-fixer into a more general Discord assistant
 
 ## License
 

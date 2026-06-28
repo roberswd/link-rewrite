@@ -1,0 +1,10 @@
+# Run with:  docker compose up -d --build
+# Stop with: docker compose down
+# Logs:      docker compose logs -f
+
+services:
+  rem:
+    build: .                      # build the image from the Dockerfile here
+    container_name: rem
+    env_file: .env                # inject DISCORD_TOKEN / INSTAGRAM_HOST as env vars
+    restart: unless-stopped       # auto-restart on crash and on boot (until you stop it)

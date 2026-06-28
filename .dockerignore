@@ -1,0 +1,20 @@
+# Secrets — NEVER bake into the image
+.env
+
+# Virtual environment & Python caches (rebuilt inside the image)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Git metadata
+.git/
+.gitignore
+
+# Files not needed at runtime
+README.md
+LICENSE
+.env.example
+Dockerfile
+docker-compose.yml
+.dockerignore
