@@ -135,9 +135,13 @@ The rewrite hosts (`kkinstagram.com`, and others like `ddinstagram` before it) a
 come and go. If embeds stop working, swap `INSTAGRAM_HOST` for a different host —
 that's the only change needed.
 
-Also note: occasionally a *specific* post will only resolve to a still cover-frame
-rather than a playable video. That's an upstream limitation of what Instagram
-exposes for that post to anonymous fetchers — not something the bot can fix.
+Also note: a reel that uses **licensed music** (a named track from Instagram's audio
+library, as opposed to *Original audio*) will only resolve to a still cover-frame, not
+a playable video. For music-licensing reasons Instagram withholds the video from
+off-platform/anonymous playback — its embed payload drops the video URL and shows a
+*"Watch on Instagram"* placeholder — so **every** proxy host can only serve the
+thumbnail. Reels with original audio play fine. This is a music-rights limitation, not
+something the bot or a different host can fix.
 
 ## Planned
 
