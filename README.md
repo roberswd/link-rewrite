@@ -8,14 +8,14 @@ render inline — so the video/photo actually shows up.
 
 ## How it works
 
-The bot does **one thing**: it swaps the domain.
+The bot makes use of embeddable links so social media videos can be playable from discord. 
+It detects the social media video, then rewrites the domain to one that is embeddable, e.g.
 
 ```
 https://www.instagram.com/reel/ABC123/   →   https://kkinstagram.com/reel/ABC123
 ```
 
-That's it. It does **not** download or re-upload media (no `yt-dlp`, no scraping).
-The domain-rewrite approach is near-zero maintenance: when an embed-proxy host stops
+The domain-rewrite approach is near-zero maintenance. When an embed-proxy host stops
 working, you change one environment variable and you're back in business.
 
 ## Why not download the video?
