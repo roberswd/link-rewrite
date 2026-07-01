@@ -69,6 +69,8 @@ Open the URL, pick your server, authorize.
 
 ### 4. Install
 
+**macOS / Linux:**
+
 ```bash
 git clone git@github.com:roberswd/link-rewrite.git
 cd link-rewrite
@@ -77,10 +79,35 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+**Windows (PowerShell):**
+
+```powershell
+git clone git@github.com:roberswd/link-rewrite.git
+cd link-rewrite
+py -3.13 -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+> If PowerShell blocks the activation script with an execution-policy error, run
+> `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once and try again — or use
+> `cmd.exe` and activate with `.venv\Scripts\activate.bat` instead.
+>
+> Install Python 3.13 from [python.org](https://www.python.org/downloads/) (tick
+> **"Add python.exe to PATH"** in the installer). The `py` launcher ships with it.
+
 ### 5. Configure
+
+**macOS / Linux:**
 
 ```bash
 cp .env.example .env
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Copy-Item .env.example .env
 ```
 
 Edit `.env` and paste your bot token:
